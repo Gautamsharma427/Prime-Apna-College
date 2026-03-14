@@ -1,0 +1,1 @@
+print("hello World") #prints hello world in terminal. Print statement is used to Print Stuff into terminal
