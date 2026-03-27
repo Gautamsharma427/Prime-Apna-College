@@ -89,3 +89,51 @@ class TAs(lecturer,student):
         super().__init__(self,salary)
         student().__init__(self,gpa)
         
+#Abstraction : showing only necessary stuff and hiding the Internaldetails
+
+# abstract classes are a blueprint for other classes. We don't create any instance of these classes but create other classes based on these classes
+# to create abstract classes we use python module named abc (abstraction based classes)
+
+from abc import ABC,abstractmethod
+
+class Animal(ABC):
+    @abstractmethod
+    def makesound(self):
+        pass
+    
+class Lion(Animal):
+    def makesound(self):
+        print("Roar")
+class COW:
+    def makesound(self):
+        print("moo")
+lion = Lion()
+lion.makesound()
+cow = COW()
+cow.makesound()
+
+# polymorphism : many forms poly means many and morphism means forms
+# multiple functions with same name
+# 1. function overriding
+# redefining a function in a child class which already exists in the parent class is called function overriding. EXAMPLE:
+
+class Punjabi_Master:
+    def designation(self):
+        print("Designation is Punjabi Teacher")
+class Angrezi_Master(Punjabi_Master):
+    def designation(self):
+        print("Designation is Angrezi Master")
+ram = Angrezi_Master()
+ram.designation() #angrezi master instead of punjabi master because of function overriding 
+
+# 2. ducktyping
+# if something walks like a duck and quakes like a duck we can treat it like a duck irrespective of classes
+class Punjabi_Master:
+    def designation(self):
+        print("Designation is Punjabi Teacher")
+class Angrezi_Master():
+    def designation(self):
+        print("Designation is Angrezi Master")
+ram = Angrezi_Master()
+ram.designation() 
+# even if the above two classes aren't related we can name the function same as both functions in two classes do the same job which is printing the designation.
