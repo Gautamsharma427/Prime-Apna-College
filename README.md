@@ -18,3 +18,8 @@
 <b>Day 8:</b>
 <li>Python Fundamentals 5 Completed ✅</li>
 <b><i>PYTHON UNIT COMPLETED</i></b>
+<hr/>
+<b> Day 9:</b>
+<li>completed the unit installation ✅</li>
+<li>completed the unit Phase 2 : Data ✅</li>
+<li><b>Note:</b> Installation folder contains some code which i wrote when i installed and tested jupyter notebook and jupyter LAB.</li>
