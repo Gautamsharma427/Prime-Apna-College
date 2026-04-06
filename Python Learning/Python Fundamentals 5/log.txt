@@ -1,0 +1,6 @@
+John
+Tonuy
+Sara
+Finn
+Alice
+program ran successfully

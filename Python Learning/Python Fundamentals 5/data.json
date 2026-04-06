@@ -1,0 +1,12 @@
+{
+    "NAME" : {
+    "name":"John Doe",
+    "age": 37,
+    "job": "Software Engineer"
+    },
+    "NAME_2":{
+        "name":"John Wick",
+        "age" : null,
+        "job" : "Lone Wolf"
+    }
+}
