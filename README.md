@@ -25,3 +25,5 @@
 <li><b>Note:</b> Installation folder contains some code which i wrote when i installed and tested jupyter notebook and jupyter LAB.</li>
 <b> Day 10:</b>
 <li>Completed the Numpy unit until working with ND arrays</li> 
+<b> Day 11:</b>
+<li>Completed the Numpy unit until beginning of Multi Dimensional Arrays & Axes</li>
