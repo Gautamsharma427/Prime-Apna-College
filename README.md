@@ -27,3 +27,5 @@
 <li>Completed the Numpy unit until working with ND arrays</li> 
 <b> Day 11:</b>
 <li>Completed the Numpy unit until beginning of Multi Dimensional Arrays & Axes</li>
+<b>Day 12:</b>
+<li>Added the Folder Data Structures and Algorithms<li>
