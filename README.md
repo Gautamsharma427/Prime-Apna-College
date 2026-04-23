@@ -29,3 +29,5 @@
 <li>Completed the Numpy unit until beginning of Multi Dimensional Arrays & Axes</li>
 <b>Day 12:</b>
 <li>Added the Folder Data Structures and Algorithms<li>
+
+<b>From Now on this folder will also contain DSA problems and i'll do them in C++ or Java instead of Python</b>
