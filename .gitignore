@@ -1,3 +1,6 @@
 .virtual_documents/
 *.log
 .ipynb_checkpoints/
+.vscode/
+*.out/
+bin/

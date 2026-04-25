@@ -30,4 +30,11 @@
 <b>Day 12:</b>
 <li>Added the Folder Data Structures and Algorithms<li>
 
-<b>From Now on this folder will also contain DSA problems and i'll do them in C++ or Java instead of Python</b>
+<b>From Now on this folder will also contain DSA problems and i'll do them in C++ or Java instead of Python. I might as well use C language to learn basics and then switch to C++ in DSA.</b>
+<hr>
+</br>
+<b>Day 13</b>
+<p>Today I revised and revisited c language basics from W3 schools and watched a video on Pointers from Apna College Course.</p>
+
+<p>I used the w3Schools documentation on C language to revise the Language. Its a good resource so thought of mentioning it here too</p>
+<a href="https://www.w3schools.com/c">Link to the Documentation</a>
