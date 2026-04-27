@@ -38,3 +38,7 @@
 
 <p>I used the w3Schools documentation on C language to revise the Language. Its a good resource so thought of mentioning it here too</p>
 <a href="https://www.w3schools.com/c">Link to the Documentation</a>
+
+<b>Day 14</b>
+<p><i><b>Target:</b> </i>I'm going to Complete the Arrays Data Structure theory from the course and the pointers as well.</p>
+<p>Completed the Unit : Pointers.</p>
