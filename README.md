@@ -42,3 +42,6 @@
 <b>Day 14</b>
 <p><i><b>Target:</b> </i>I'm going to Complete the Arrays Data Structure theory from the course and the pointers as well.</p>
 <p>Completed the Unit : Pointers.</p>
+<b>Day 15</b>
+<p>Learnt about memory allocation in C by making a Dynamic Array and Learnt about Basics of Arrays and Dynamic arrays. I learnt about malloc and realloc in C programming.</p>
+<b>Note:</b>I will focus on arrays from DSA course tommorrow.
