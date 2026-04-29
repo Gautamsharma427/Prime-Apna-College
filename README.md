@@ -45,5 +45,7 @@
 <b>Day 15</b>
 <p>Learnt about memory allocation in C by making a Dynamic Array and Learnt about Basics of Arrays and Dynamic arrays. I learnt about malloc and realloc in C programming.</p>
 <b>Note:</b>I will focus on arrays from DSA course tommorrow.
+
+<br>
 <b>Day 16</b>
 <p>I learnt about array algorithms like linear search, wrote a program to find the largest number of a array in C and wrote a program to reverse a array in C</p>
