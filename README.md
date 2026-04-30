@@ -49,3 +49,6 @@
 <br>
 <b>Day 16</b>
 <p>I learnt about array algorithms like linear search, wrote a program to find the largest number of a array in C and wrote a program to reverse a array in C</p>
+
+<b>Day 17</b>
+<p>I learnt about performing binary search. I didn't do any more because i felt like i need time to process this algorithm as it felt a bit complicated(eventhough it isn't)</p>
