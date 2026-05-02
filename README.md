@@ -52,3 +52,8 @@
 
 <b>Day 17</b>
 <p>I learnt about performing binary search. I didn't do any more because i felt like i need time to process this algorithm as it felt a bit complicated(eventhough it isn't)</p>
+<b>Day 18</b>
+<p>Didn't do any coding on day 18 because i was learning about viewer psychology on youtube through a podcast.</p>
+<b>Day 19</b>
+<li>Completed the Unit : Arrays(Part-1)</li>
+<p>Learnt about behaviour of arrays as pointers and Pointer Arithmetic. I also made my first Open Source contribution and made my first pull request on Github.</p>
