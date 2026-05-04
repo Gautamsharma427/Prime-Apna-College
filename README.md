@@ -57,3 +57,8 @@
 <b>Day 19</b>
 <li>Completed the Unit : Arrays(Part-1)</li>
 <p>Learnt about behaviour of arrays as pointers and Pointer Arithmetic. I also made my first Open Source contribution and made my first pull request on Github.</p>
+<b>Day 20</b>
+
+- Started the second unit of Arrays🚀
+- Wrote a program to print number of sub arrays
+- Complete the first lecture of the second unit 
