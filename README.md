@@ -64,3 +64,7 @@
 - Complete the first lecture of the second unit 
 
 <b>break of a Week</b>
+<b>Day 21</b>
+
+- Light work to get back the momentum 
+- Revised C++ and modified a question solutionx 
