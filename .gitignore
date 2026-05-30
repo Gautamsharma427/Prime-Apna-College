@@ -5,3 +5,4 @@
 *.out/
 bin/
 Assignment PDFs/
+node_modules/

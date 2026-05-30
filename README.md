@@ -42,7 +42,7 @@
 <b>Day 14</b>
 <p><i><b>Target:</b> </i>I'm going to Complete the Arrays Data Structure theory from the course and the pointers as well.</p>
 <p>Completed the Unit : Pointers.</p>
-<b>Day 15</b>
+<b>Day 15</b>Learning Tailwind
 <p>Learnt about memory allocation in C by making a Dynamic Array and Learnt about Basics of Arrays and Dynamic arrays. I learnt about malloc and realloc in C programming.</p>
 <b>Note:</b>I will focus on arrays from DSA course tommorrow.
 
@@ -68,3 +68,8 @@
 
 - Light work to get back the momentum 
 - Revised C++ and modified a question solutionx 
+
+<b>Day 22</b>
+
+- added the folder Learning Tailwind
+- will start learning web development while learning small projects
