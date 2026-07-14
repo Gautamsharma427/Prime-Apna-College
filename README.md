@@ -73,3 +73,5 @@
 
 - added the folder Learning Tailwind
 - will start learning web development while learning small projects
+
+**Update** : Working on the Repository Vish-Programming-Language hence the course is paused for a while. But I'll keep updating this readme about what i do there too from now. 
