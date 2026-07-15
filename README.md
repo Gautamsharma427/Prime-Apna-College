@@ -75,6 +75,7 @@
 - will start learning web development while learning small projects
 
 **Update** : Working on the Repository Vish-Programming-Language hence the course is paused for a while. But I'll keep updating this readme about what i do there too from now.
+
 <b>Day 23</b>
 - Learnt about opsec and how to stay anonymous online and how to clear up your digital footprints along with how you can live like a ghost online without revealing your actual identity.
 - opsec isn't like a set of rules but it is a lifestyle, a discipline which you need to follow everywhere you go so ya that's all for today.
