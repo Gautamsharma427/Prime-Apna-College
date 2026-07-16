@@ -79,3 +79,12 @@
 <b>Day 23</b>
 - Learnt about opsec and how to stay anonymous online and how to clear up your digital footprints along with how you can live like a ghost online without revealing your actual identity.
 - opsec isn't like a set of rules but it is a lifestyle, a discipline which you need to follow everywhere you go so ya that's all for today.
+
+<b>Day 24</b>
+- Today I learnt about quite a bit of stuff like
+    1. Transpilers
+    2. Runtime
+    3. Front End, Middle End, Backend etc.
+- Main thing is that i mapped out the entire path from starting with a lexer to all the way executing into a virtual machine which helped me learn about how one should approach stuff like this.
+- Also I started a blogger blog to document articles about the projects i'll create in the future. 
+
