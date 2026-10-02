@@ -3,13 +3,16 @@
 using namespace std;
 
 int linearSearch(int *arr, int n, int num);
+int binarySearch(int *arr, int n, int num);
 void reverseArray(int *arr, int size);
+void binaryReverseArray(int *arr, int size);
 int main()
 {
     int arr[] = {1, 2, 3, 4, 5, 7, 32, 343, 909, 9302};
     int size = sizeof(arr) / sizeof(arr[0]);
     cout << "value found at index " << linearSearch(arr, size, 32) << endl;
-    reverseArray(arr,size);
+    binaryReverseArray(arr,size);
+    // reverseArray(arr,size);
     for (int i = 0; i < size; i++)
     {
         cout << arr[i] << endl;
@@ -28,6 +31,23 @@ int linearSearch(int *arr, int n, int num)
     }
     return ans;
 }
+int binarySearch(int *arr, int n, int num){
+    int mid=n/2;
+    int left=0;
+    int right=n-1;
+    for (int i = 0; true; i++)
+    {
+        if (mid==left)
+        {
+            /* code */
+        }
+        
+        
+    }
+    
+
+    
+}
 void reverseArray(int *arr, int size)
 {
     int reversedArray[size];
@@ -42,4 +62,19 @@ void reverseArray(int *arr, int size)
         arr[i]=reversedArray[i];
     }
     
-}   
+}
+void binaryReverseArray(int *arr,int size){
+    int n = size-1;
+    for (int i = 0; i < size; i++)
+        {
+            if(i>=n){
+                break;
+            }
+            else{
+            int temp = arr[i];
+            arr[i]=arr[n];
+            arr[n] = temp;
+            n--;
+            }
+        }
+    }
