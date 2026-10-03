@@ -8,7 +8,7 @@ void reverseArray(int *arr, int size);
 void binaryReverseArray(int *arr, int size);
 int main()
 {
-    int arr[] = {1, 2, 3, 4, 5, 7, 32, 343, 909, 9302};
+    int arr[] = {1, 2, 3, 4, 5, 7, 32, 343, 909, 9302,89};
     int size = sizeof(arr) / sizeof(arr[0]);
     cout << "value found at index " << linearSearch(arr, size, 32) << endl;
     cout << "value found at the index : " << binarySearch(arr, size, 32)<< endl;
