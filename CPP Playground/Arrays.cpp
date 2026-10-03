@@ -11,7 +11,8 @@ int main()
     int arr[] = {1, 2, 3, 4, 5, 7, 32, 343, 909, 9302};
     int size = sizeof(arr) / sizeof(arr[0]);
     cout << "value found at index " << linearSearch(arr, size, 32) << endl;
-    binaryReverseArray(arr,size);
+    cout << "value found at the index : " << binarySearch(arr, size, 32)<< endl;
+    binaryReverseArray(arr, size);
     // reverseArray(arr,size);
     for (int i = 0; i < size; i++)
     {
@@ -31,22 +32,28 @@ int linearSearch(int *arr, int n, int num)
     }
     return ans;
 }
-int binarySearch(int *arr, int n, int num){
-    int mid=n/2;
-    int left=0;
-    int right=n-1;
-    for (int i = 0; true; i++)
+int binarySearch(int *arr, int n, int num)
+{
+    int left = 0;
+    int right = n - 1;
+    while (left <= right)
     {
-        if (mid==left)
-        {
-            /* code */
-        }
-        
-        
-    }
-    
 
-    
+        int mid = (left+right) / 2;
+        if (arr[mid] == num)
+        {
+            return mid;
+        }
+        else if (arr[mid] < num)
+        {
+            left = mid + 1;
+        }
+        else if (arr[mid] > num)
+        {
+            right = mid - 1;
+        }
+    }
+    return -1;
 }
 void reverseArray(int *arr, int size)
 {
@@ -59,22 +66,24 @@ void reverseArray(int *arr, int size)
     }
     for (int i = 0; i < size; i++)
     {
-        arr[i]=reversedArray[i];
+        arr[i] = reversedArray[i];
     }
-    
 }
-void binaryReverseArray(int *arr,int size){
-    int n = size-1;
+void binaryReverseArray(int *arr, int size)
+{
+    int n = size - 1;
     for (int i = 0; i < size; i++)
+    {
+        if (i >= n)
         {
-            if(i>=n){
-                break;
-            }
-            else{
+            break;
+        }
+        else
+        {
             int temp = arr[i];
-            arr[i]=arr[n];
+            arr[i] = arr[n];
             arr[n] = temp;
             n--;
-            }
         }
     }
+}
