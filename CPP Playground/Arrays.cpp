@@ -10,6 +10,7 @@ void reverseArray(int *arr, int size);
 void binaryReverseArray(int *arr, int size);
 void printSubArrays(int *arr, int size);
 int maxSubArraySum(int *arr, int size);
+int kadanesAlgorithm(int *arr, int size);
 int main()
 {
     // int arr[] = {1, 2, 3, 4, 5, 7, 32, 343, 909, 9302,89};
@@ -25,6 +26,8 @@ int main()
     };
     // printSubArrays(arr,size);
     cout<<"THE SUM OF THE BIGGEST SUBARRAY IS: " << maxSubArraySum(arr,size);
+    cout<<"THE SUM OF THE BIGGEST SUBARRAY IS: " << kadanesAlgorithm(arr,size);
+
 }
 int linearSearch(int *arr, int n, int num)
 {
@@ -129,4 +132,20 @@ int maxSubArraySum(int *arr,int size){
     }
     return *max_element(sums.begin(), sums.end());
         
+}
+int kadanesAlgorithm(int *arr, int size){
+    int currentSum = 0;
+    int maxSum = INT_MIN;
+
+    for (int i = 0; i < size; i++)
+    {
+        if (currentSum<0)
+        {
+            currentSum = 0;
+        }
+        currentSum+=arr[i];
+        maxSum = max(currentSum,maxSum);
+    }
+    return maxSum;
+    
 }
