@@ -1,5 +1,7 @@
 // This file contains some code about arrrays
 #include <iostream>
+#include <vector>
+#include <algorithm>
 using namespace std;
 
 int linearSearch(int *arr, int n, int num);
@@ -7,6 +9,7 @@ int binarySearch(int *arr, int n, int num);
 void reverseArray(int *arr, int size);
 void binaryReverseArray(int *arr, int size);
 void printSubArrays(int *arr, int size);
+int maxSubArraySum(int *arr, int size);
 int main()
 {
     // int arr[] = {1, 2, 3, 4, 5, 7, 32, 343, 909, 9302,89};
@@ -20,7 +23,8 @@ int main()
     {
         cout << arr[i] << endl;
     };
-    printSubArrays(arr,size);
+    // printSubArrays(arr,size);
+    cout<<"THE SUM OF THE BIGGEST SUBARRAY IS: " << maxSubArraySum(arr,size);
 }
 int linearSearch(int *arr, int n, int num)
 {
@@ -107,4 +111,22 @@ void printSubArrays(int *arr,int n){
     cout<<endl;
    }
    
+}
+int maxSubArraySum(int *arr,int size){
+    vector<int> sums = {};
+    
+    for (int start = 0; start < size; start++)
+    {
+        for (int end = start; end < size; end++)
+        {
+           int sum=0;
+           for (int i = start; i <= end; i++)
+            {
+            sum = sum+arr[i];
+            }
+           sums.push_back(sum);
+        }
+    }
+    return *max_element(sums.begin(), sums.end());
+        
 }
