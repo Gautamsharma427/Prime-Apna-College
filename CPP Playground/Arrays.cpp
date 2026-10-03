@@ -6,18 +6,21 @@ int linearSearch(int *arr, int n, int num);
 int binarySearch(int *arr, int n, int num);
 void reverseArray(int *arr, int size);
 void binaryReverseArray(int *arr, int size);
+void printSubArrays(int *arr, int size);
 int main()
 {
-    int arr[] = {1, 2, 3, 4, 5, 7, 32, 343, 909, 9302,89};
+    // int arr[] = {1, 2, 3, 4, 5, 7, 32, 343, 909, 9302,89};
+    int arr[] = {1, 2, 3, 4, 5};
     int size = sizeof(arr) / sizeof(arr[0]);
-    cout << "value found at index " << linearSearch(arr, size, 32) << endl;
-    cout << "value found at the index : " << binarySearch(arr, size, 32)<< endl;
+    cout << "value found at index " << linearSearch(arr, size, 3) << endl;
+    cout << "value found at the index : " << binarySearch(arr, size, 3)<< endl;
     binaryReverseArray(arr, size);
-    // reverseArray(arr,size);
+    reverseArray(arr,size);
     for (int i = 0; i < size; i++)
     {
         cout << arr[i] << endl;
     };
+    printSubArrays(arr,size);
 }
 int linearSearch(int *arr, int n, int num)
 {
@@ -86,4 +89,22 @@ void binaryReverseArray(int *arr, int size)
             n--;
         }
     }
+}
+void printSubArrays(int *arr,int n){
+   int numberOfSubarrays = n*(n+1)/2;
+   for (int start = 0; start < n; start++)
+   {
+    for (int end = start; end < n; end++)
+    {
+        // cout<<"("<<start<<","<<end<<")"<<"  ";
+
+        for (int i = start; i <= end; i++)
+        {
+            cout<<arr[i]<<" ";
+        }
+        cout<<endl;
+    }
+    cout<<endl;
+   }
+   
 }
