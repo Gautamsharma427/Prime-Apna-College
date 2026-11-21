@@ -88,3 +88,5 @@
 - Main thing is that i mapped out the entire path from starting with a lexer to all the way executing into a virtual machine which helped me learn about how one should approach stuff like this.
 - Also I started a blogger blog to document articles about the projects i'll create in the future. 
 
+<b>Day 25</b>
+Completed 2 phases of forge
