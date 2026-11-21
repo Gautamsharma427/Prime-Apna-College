@@ -1,0 +1,72 @@
+[
+    {
+        "name": "Wireless Mouse",
+        "SKU": "WM001",
+        "Price": 599.0,
+        "Quantity": 4,
+        "ReorderLevel": 10
+    },
+    {
+        "name": "Mechanical Keyboard",
+        "SKU": "KB001",
+        "Price": 2499.0,
+        "Quantity": 25,
+        "ReorderLevel": 5
+    },
+    {
+        "name": "USB-C Cable",
+        "SKU": "UC001",
+        "Price": 299.0,
+        "Quantity": 8,
+        "ReorderLevel": 20
+    },
+    {
+        "name": "27-inch Monitor",
+        "SKU": "MN001",
+        "Price": 14999.0,
+        "Quantity": 3,
+        "ReorderLevel": 3
+    },
+    {
+        "name": "Laptop Stand",
+        "SKU": "LS001",
+        "Price": 899.0,
+        "Quantity": 15,
+        "ReorderLevel": 5
+    },
+    {
+        "name": "Bluetooth Headphones",
+        "SKU": "BH001",
+        "Price": 1999.0,
+        "Quantity": 2,
+        "ReorderLevel": 8
+    },
+    {
+        "name": "Webcam",
+        "SKU": "WC001",
+        "Price": 1299.0,
+        "Quantity": 12,
+        "ReorderLevel": 10
+    },
+    {
+        "name": "External SSD 1TB",
+        "SKU": "SSD001",
+        "Price": 6499.0,
+        "Quantity": 6,
+        "ReorderLevel": 6
+    },
+    {
+        "name": "USB Hub",
+        "SKU": "UH001",
+        "Price": 799.0,
+        "Quantity": 30,
+        "ReorderLevel": 10
+    },
+    {
+        "name": "Laptop Charger",
+        "SKU": "LC001",
+        "Price": 1799.0,
+        "Quantity": 0,
+        "ReorderLevel": 5
+    }
+]

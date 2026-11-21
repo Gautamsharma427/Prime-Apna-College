@@ -1,4 +1,12 @@
-products = []
+import json
+from pathlib import Path
+
+# Always finds products.json in the same folder as main.py
+file_path = Path(__file__).resolve().parent / "products.json"
+f = open(file_path,"r")
+products = json.load(f)
+f.close()
+print(products)
 def addProduct():
     name = input("Product-name: ")
     SKU = input("SKU: ")
@@ -56,4 +64,5 @@ while True:
             if(product["Quantity"]<=product["ReorderLevel"]):
                 lowStock.append(product)
         print(lowStock)
-
+with open(file_path,"w") as f:
+    json.dump(products,f,indent=4)
