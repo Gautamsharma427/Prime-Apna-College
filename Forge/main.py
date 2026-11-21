@@ -1,18 +1,27 @@
 import json
 from pathlib import Path
-
+import sys
 # Always finds products.json in the same folder as main.py
-file_path = Path(__file__).resolve().parent / "products.json"
-f = open(file_path,"r")
-products = json.load(f)
-f.close()
-print(products)
+try:
+    file_path = Path(__file__).resolve().parent / "products.json"
+    f = open(file_path,"r")
+    products = json.load(f)
+    f.close()
+except Exception as e:
+    print("Couldn't Open! Database corrupt or not exist! Plz check!")
+    sys.exit()
 def addProduct():
     name = input("Product-name: ")
     SKU = input("SKU: ")
     Price = float(input("Price: "))
     Quantity = int(input("Quantity: "))
     ReorderLevel = int(input("Reorder level: "))
+    for product in products:
+        if(product["SKU"]==SKU):
+            print("SKU already found!")
+            return
+        else:
+            continue
     return {"name":name,"SKU":SKU,"Price":Price,"Quantity":Quantity,"ReorderLevel":ReorderLevel}
 def searchProduct(sku):
     found = False
@@ -43,8 +52,8 @@ while True:
         continue
     if option == 1:
         products.append(addProduct())
-        print("Product added successfully!")
-        print(products)
+        with open(file_path,"w") as f:
+            json.dump(products,f,indent=4)
     elif option == 2:
         print(products)
     elif option == -1:
@@ -57,6 +66,8 @@ while True:
         sku = input("Enter sku of the product you want to update the stock of: ")
         new_stock = int(input("The New Stock Amount: "))
         updateProduct(sku,new_stock)
+        with open(file_path,"w") as f:
+            json.dump(products,f,indent=4)
         
     elif option == 5:
         lowStock = []
