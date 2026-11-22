@@ -1,6 +1,13 @@
 import json
 from pathlib import Path
 import sys
+from fastapi import HTTPException
+
+def PROD():
+    file_path = Path(__file__).resolve().parent / "products.json"
+    with open(file_path,"r") as f:
+        products = json.load(f)
+        return products
 def getLowStockProducts(products):
     lowStock = []
     for product in products:
@@ -26,8 +33,9 @@ def searchProduct(sku,products):
         if product["SKU"] == sku:
             print(product)
             found = True
+            return product
     if not found:
-        print("Product wasn't found!")
+        print("PRODUCT WASN'T FOUND")
 
 def updateProduct(sku,new_stock,products):
     try:
