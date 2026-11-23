@@ -75,5 +75,19 @@
         "Price": 3200.0,
         "Quantity": 12,
         "ReorderLevel": 2
+    },
+    {
+        "name": "Alice",
+        "SKU": "32a",
+        "Price": 3243.0,
+        "Quantity": 32,
+        "ReorderLevel": 3
+    },
+    {
+        "name": "Alice",
+        "SKU": "32v",
+        "Price": 3243.0,
+        "Quantity": 32,
+        "ReorderLevel": 3
     }
 ]

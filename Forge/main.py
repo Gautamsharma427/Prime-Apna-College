@@ -2,7 +2,11 @@ import json
 from pathlib import Path
 import sys
 from fastapi import HTTPException
+def updateDB(products):
+    file_path = Path(__file__).resolve().parent / "products.json"
 
+    with open(file_path,"w+") as f:
+        json.dump(products,f,indent=4)
 def PROD():
     file_path = Path(__file__).resolve().parent / "products.json"
     with open(file_path,"r") as f:
