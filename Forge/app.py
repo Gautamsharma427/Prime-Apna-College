@@ -11,7 +11,17 @@ class Product(BaseModel):
     Quantity: int
     ReorderLevel: int
 
+class UpdateProd(BaseModel):
+    name: str | None = None
+    Price: float | None = None
+    Quantity: int | None = None
+    ReorderLevel: int | None = None
 
+class NewProd(BaseModel):
+    name: str
+    Price: float
+    Quantity: int
+    ReorderLevel: int
 @app.get("/products")
 def products():
     return PROD()
@@ -37,3 +47,49 @@ def createProduct(product:Product):
     products.append(product)
     updateDB(products)
     return product
+
+@app.patch("/products/{sku}",status_code=200)
+def updateProduct(sku:str,prod:UpdateProd):
+    prod = prod.model_dump(exclude_unset=True)
+    products = PROD()
+    found = False
+    if not prod:
+        raise HTTPException(400,detail="Details not provided")
+    for product in products:
+        if(product['SKU']==sku):
+            found = True
+            product.update(prod)
+            break
+    if not found:
+        raise HTTPException(404,detail="Product Not Found")
+    updateDB(products)
+    return product
+
+@app.put("/products/{sku}",status_code=200)
+def replaceProduct(sku:str,newData:NewProd):
+    newData = newData.model_dump()
+    products = PROD()
+    found = False
+    for product in products:
+        if product["SKU"] == sku:
+            found = True
+            product.update(newData)
+            break
+    if not found:
+            raise HTTPException(404,detail="Product Not Found")
+    updateDB(products)
+    return product
+
+@app.delete('/products/{sku}',status_code=204)
+def deleteProduct(sku:str):
+    products = PROD()
+    found = False
+    for product in products:
+        if(product["SKU"]==sku):
+            found = True
+            products.remove(product)
+            break
+    if not found:
+        raise HTTPException(404,detail="Product Not Found")
+    updateDB(products)
+    # no content on deletion request
