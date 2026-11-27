@@ -22,7 +22,11 @@ class UpdateProd(BaseModel):
 class NewProd(Product):
      pass
 
+class StockIn(BaseModel):
+    quantity: int = Field(gt=0)
 
+class StockOut(StockIn):
+    pass
 
 @app.get("/products")
 def products():
@@ -95,3 +99,39 @@ def deleteProduct(sku:str):
         raise HTTPException(404,detail="Product Not Found")
     updateDB(products)
     # no content on deletion request
+@app.post("/products/{sku}/stock-in")
+def stockIn(sku:str,value: StockIn):
+    value = value.model_dump()
+    products = PROD()
+    found = False
+    for product in products:
+        if product["SKU"] == sku:
+            prev_qty = product["Quantity"]
+            found = True
+            product["Quantity"] = product['Quantity']+value['quantity']
+            break
+    if not found:
+        raise HTTPException(404,detail="Product Not found")
+    updateDB(products)
+    response = {"SKU":sku,"previous_quantity":prev_qty,"added_quantity":value['quantity'],"new_quantity":product["Quantity"]}
+    return response 
+
+@app.post("/products/{sku}/stock-out")
+def stockOut(sku:str,value: StockOut):
+    value = value.model_dump()
+    products = PROD()
+    found = False
+    if(value["quantity"]<0):
+            raise HTTPException(422,detail="Detail Unprocessed! Entered Quantity is more than the present Quantity")
+    for product in products:
+        if product["SKU"] == sku:
+            prev_qty = product["Quantity"]
+            found = True
+            product["Quantity"] = product['Quantity']-value['quantity']
+            break
+    if not found:
+        raise HTTPException(404,detail="Product Not found")
+    
+    updateDB(products)
+    response = {"SKU":sku,"previous_quantity":prev_qty,"quantity_out":value['quantity'],"new_quantity":product["Quantity"]}
+    return response 

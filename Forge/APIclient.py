@@ -1,10 +1,10 @@
 import requests
 
-url = "http://127.0.0.1:8000/products/wm01"
-payload = {"SKU":"12C"}
+url = "http://127.0.0.1:8000/products/wm01/stock-in"
+payload = {"quantity":"-12"}
 
 # Using the 'json' parameter automatically sets the Content-Type header
-response = requests.delete(url)
+response = requests.post(url,json=payload)
 
 print(response.status_code)
 try:
