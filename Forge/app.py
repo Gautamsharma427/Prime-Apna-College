@@ -69,7 +69,8 @@ def updateProduct(sku:str,prod:UpdateProd):
 
 @app.put("/products/{sku}",status_code=200)
 def replaceProduct(sku:str,newData:NewProd):
-    newData = newData.model_dump()
+    newData = newData.model_dump(exclude = {"SKU"})
+    newData["SKU"] = sku
     products = PROD()
     found = False
     for product in products:
