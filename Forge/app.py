@@ -1,27 +1,29 @@
 from fastapi import FastAPI,HTTPException
 from main import PROD,getLowStockProducts,searchProduct,updateDB
-from pydantic import BaseModel
+from pydantic import BaseModel, Field,ConfigDict
 from pathlib import Path
 app = FastAPI()
 
 class Product(BaseModel):
-    name: str
-    SKU: str
-    Price: float
-    Quantity: int
-    ReorderLevel: int
+    model_config = ConfigDict(str_strip_whitespace = True)
+    name: str = Field(min_length = 1)
+    SKU: str = Field(min_length=1,max_length = 5)
+    Price: float = Field(ge=0)
+    Quantity: int = Field(ge=0)
+    ReorderLevel: int = Field(ge=0)
 
 class UpdateProd(BaseModel):
+    model_config = ConfigDict(str_strip_whitespace = True)
     name: str | None = None
     Price: float | None = None
     Quantity: int | None = None
     ReorderLevel: int | None = None
 
-class NewProd(BaseModel):
-    name: str
-    Price: float
-    Quantity: int
-    ReorderLevel: int
+class NewProd(Product):
+     pass
+
+
+
 @app.get("/products")
 def products():
     return PROD()
