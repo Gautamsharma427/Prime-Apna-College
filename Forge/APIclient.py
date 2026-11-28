@@ -1,7 +1,12 @@
 import requests
 
-url = "http://127.0.0.1:8000/products/wm01/stock-out"
-payload = {"quantity":25}
+url = "http://127.0.0.1:8000/add-supplier"
+payload = {
+  "ID": "SUP-101",
+  "name": "Apex Supplies Ltd.",
+  "phone": "+91-9876543210",
+  "email": "contact@apexsupplies.com"
+}
 
 # Using the 'json' parameter automatically sets the Content-Type header
 response = requests.post(url,json=payload)

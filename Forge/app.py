@@ -1,6 +1,6 @@
 from fastapi import FastAPI,HTTPException
-from main import PROD,getLowStockProducts,searchProduct,updateDB,getMovements,saveMovements
-from pydantic import BaseModel, Field,ConfigDict
+from main import PROD,getLowStockProducts,searchProduct,updateDB,getMovements,saveMovements,addSupplier,getSuppliers,removeSupplier
+from pydantic import BaseModel, Field,ConfigDict,EmailStr
 from datetime import datetime
 from typing import Literal
 app = FastAPI()
@@ -36,6 +36,13 @@ class Movement(BaseModel):
     previous_quantity:int = Field(ge=0)
     new_quantity:int = Field(ge=0)
     timestamp : str
+
+
+class Supplier(BaseModel):
+    ID : str
+    name : str
+    phone : str
+    email : EmailStr
 @app.get("/products")
 def products():
     return PROD()
@@ -149,4 +156,28 @@ def stockOut(sku:str,value: StockOut):
     movement = Movement(SKU=sku,type="stock-out",quantity=value['quantity'],previous_quantity=prev_qty,new_quantity=product["Quantity"],timestamp=datetime.now().isoformat())
     saveMovements(movement.model_dump())
     response = {"SKU":sku,"previous_quantity":prev_qty,"quantity_out":value['quantity'],"new_quantity":product["Quantity"]}
-    return response 
+    return response
+
+@app.get("/product-history",status_code=200)
+def prodHistory():
+    return getMovements()
+
+@app.get("/suppliers",status_code=200)
+def sendSuppliers():
+    return getSuppliers()
+@app.post("/add-supplier",status_code=200)
+def addSuppl(data:Supplier):
+    suppliers = getSuppliers()
+    data = data.model_dump()
+    for supplier in suppliers:
+        if supplier["ID"]==data["ID"]:
+            raise HTTPException(detail="Supplier Already Exists! Data Unprocessed",status_code=422)
+    addSupplier(data)
+    return data
+
+@app.delete("/suppliers/{id}",status_code=204)
+def delSupplier(id:str):
+    try:
+        removeSupplier(id)
+    except Exception:
+        raise HTTPException(status_code=404,detail="Supplier Not Found")

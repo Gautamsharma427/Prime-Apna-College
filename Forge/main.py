@@ -2,6 +2,9 @@ import json
 from pathlib import Path
 import sys
 
+class SupplierNotFoundError(Exception):
+    pass
+
 def updateDB(products):
     file_path = Path(__file__).resolve().parent / "products.json"
 
@@ -51,7 +54,7 @@ def updateProduct(sku,new_stock,products):
         print("updation failed plz check!")
 def getMovements():
     file_path = Path(__file__).resolve().parent / "movements.json"
-    with open(file_path,"w+") as f:
+    with open(file_path,"r") as f:
         movements = json.load(f)
         return movements
 
@@ -62,6 +65,37 @@ def saveMovements(movement):#python dictionary
         data.append(movement)
     with open(file_path,"w") as f:
         json.dump(data,f,indent=4)
+
+def getSuppliers():
+    file_path = Path(__file__).resolve().parent / "suppliers.json"
+    with open(file_path,'r') as f:
+        data = json.load(f)
+        return data
+
+def addSupplier(details): #supplier details as a python Dictionary
+    file_path = Path(__file__).resolve().parent / "suppliers.json"
+    with open(file_path,"r") as f:
+        data = json.load(f)
+        data.append(details)
+    with open(file_path,'w') as f:
+        json.dump(data,f,indent=4)
+
+def removeSupplier(id):
+    file_path = Path(__file__).resolve().parent / "suppliers.json"
+    found = False
+    data = getSuppliers()
+    for supplier in data:
+        if(supplier["ID"]==id):
+            found = True
+            data.remove(supplier)
+            break
+
+    if not found:
+        raise ValueError()
+
+    with open(file_path,'w') as f:
+            json.dump(data,f,indent=4)
+    
 if __name__ == "__main__":
     try:
         file_path = Path(__file__).resolve().parent / "products.json"
