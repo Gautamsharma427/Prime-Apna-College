@@ -89,5 +89,12 @@
         "Price": 3243.0,
         "Quantity": 32,
         "ReorderLevel": 3
+    },
+    {
+        "name": "Mug",
+        "SKU": "420",
+        "Price": 99.0,
+        "Quantity": 200,
+        "ReorderLevel": 2
     }
 ]

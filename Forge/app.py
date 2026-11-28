@@ -2,6 +2,7 @@ from fastapi import FastAPI,HTTPException
 from main import PROD,getLowStockProducts,searchProduct,updateDB,getMovements,saveMovements
 from pydantic import BaseModel, Field,ConfigDict
 from datetime import datetime
+from typing import Literal
 app = FastAPI()
 
 class Product(BaseModel):
@@ -30,7 +31,7 @@ class StockOut(StockIn):
 
 class Movement(BaseModel):
     SKU : str
-    type: str
+    type: Literal["stock-in", "stock-out"]
     quantity : int = Field(gt=0)
     previous_quantity:int = Field(ge=0)
     new_quantity:int = Field(ge=0)
@@ -132,9 +133,11 @@ def stockOut(sku:str,value: StockOut):
     products = PROD()
     found = False
     if(value["quantity"]<0):
-            raise HTTPException(422,detail="Detail Unprocessed! Entered Quantity is more than the present Quantity")
+            raise HTTPException(422,detail="Detail Unprocessed! Entered Quantity is negative")   
     for product in products:
         if product["SKU"] == sku:
+            if(value["quantity"]>product["Quantity"]):
+                raise HTTPException(422,detail="Detail Unprocessed! Entered Quantity is more than the Present Quantity")
             prev_qty = product["Quantity"]
             found = True
             product["Quantity"] = product['Quantity']-value['quantity']
