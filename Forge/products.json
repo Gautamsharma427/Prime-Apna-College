@@ -73,7 +73,7 @@
         "name": "SuperMan",
         "SKU": "wm01",
         "Price": 3200.0,
-        "Quantity": 12,
+        "Quantity": 24,
         "ReorderLevel": 2
     },
     {

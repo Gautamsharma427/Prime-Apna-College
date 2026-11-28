@@ -1,7 +1,7 @@
 import requests
 
-url = "http://127.0.0.1:8000/products/wm01/stock-in"
-payload = {"quantity":"-12"}
+url = "http://127.0.0.1:8000/products/wm01/stock-out"
+payload = {"quantity":12}
 
 # Using the 'json' parameter automatically sets the Content-Type header
 response = requests.post(url,json=payload)

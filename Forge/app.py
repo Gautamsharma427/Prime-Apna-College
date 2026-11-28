@@ -1,7 +1,7 @@
 from fastapi import FastAPI,HTTPException
-from main import PROD,getLowStockProducts,searchProduct,updateDB
+from main import PROD,getLowStockProducts,searchProduct,updateDB,getMovements,saveMovements
 from pydantic import BaseModel, Field,ConfigDict
-from pathlib import Path
+from datetime import datetime
 app = FastAPI()
 
 class Product(BaseModel):
@@ -28,6 +28,13 @@ class StockIn(BaseModel):
 class StockOut(StockIn):
     pass
 
+class Movement(BaseModel):
+    SKU : str
+    type: str
+    quantity : int = Field(gt=0)
+    previous_quantity:int = Field(ge=0)
+    new_quantity:int = Field(ge=0)
+    timestamp : str
 @app.get("/products")
 def products():
     return PROD()
@@ -114,6 +121,8 @@ def stockIn(sku:str,value: StockIn):
     if not found:
         raise HTTPException(404,detail="Product Not found")
     updateDB(products)
+    movement = Movement(SKU=sku,type="stock-in",quantity=value['quantity'],previous_quantity=prev_qty,new_quantity=product["Quantity"],timestamp=datetime.now().isoformat())
+    saveMovements(movement.model_dump())
     response = {"SKU":sku,"previous_quantity":prev_qty,"added_quantity":value['quantity'],"new_quantity":product["Quantity"]}
     return response 
 
@@ -134,5 +143,7 @@ def stockOut(sku:str,value: StockOut):
         raise HTTPException(404,detail="Product Not found")
     
     updateDB(products)
+    movement = Movement(SKU=sku,type="stock-out",quantity=value['quantity'],previous_quantity=prev_qty,new_quantity=product["Quantity"],timestamp=datetime.now().isoformat())
+    saveMovements(movement.model_dump())
     response = {"SKU":sku,"previous_quantity":prev_qty,"quantity_out":value['quantity'],"new_quantity":product["Quantity"]}
     return response 

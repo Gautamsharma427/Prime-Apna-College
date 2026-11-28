@@ -49,7 +49,19 @@ def updateProduct(sku,new_stock,products):
                 break
     except Exception as e:
         print("updation failed plz check!")
+def getMovements():
+    file_path = Path(__file__).resolve().parent / "movements.json"
+    with open(file_path,"w+") as f:
+        movements = json.load(f)
+        return movements
 
+def saveMovements(movement):#python dictionary
+    file_path = Path(__file__).resolve().parent / "movements.json"
+    with open(file_path,"r") as f:
+        data = json.load(f)
+        data.append(movement)
+    with open(file_path,"w") as f:
+        json.dump(data,f,indent=4)
 if __name__ == "__main__":
     try:
         file_path = Path(__file__).resolve().parent / "products.json"

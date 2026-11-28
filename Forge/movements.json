@@ -1,0 +1,26 @@
+[
+    {
+        "SKU": "PR001",
+        "type": "stock-in",
+        "quantity": 50,
+        "previous_quantity": 100,
+        "new_quantity": 150,
+        "timestamp": "2026-11-28T13:30:45.123456"
+    },
+    {
+        "SKU": "wm01",
+        "type": "stock-in",
+        "quantity": 12,
+        "previous_quantity": 24,
+        "new_quantity": 36,
+        "timestamp": "2026-11-28T13:42:31.959467"
+    },
+    {
+        "SKU": "wm01",
+        "type": "stock-out",
+        "quantity": 12,
+        "previous_quantity": 36,
+        "new_quantity": 24,
+        "timestamp": "2026-11-28T13:43:04.532195"
+    }
+]
